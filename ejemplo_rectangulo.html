@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>rectangulos</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+    }
+    canvas {
+        border: 1px solid #000;
+    }
+</style>
+</head>
+<body>
+<canvas id="myCanvas" width="500" height="500"></canvas>
+
+<script>
+    // Obtener el elemento canvas y su contexto
+    var canvas = document.getElementById('myCanvas');
+    var ctx = canvas.getContext('2d');
+
+    // Tamaño de cada rectángulo
+    var rectSize = 50;
+
+    // Número de rectángulos en la cuadrícula
+    var numRectX = canvas.width / rectSize;
+    var numRectY = canvas.height / rectSize;
+
+    // Dibujar la cuadrícula de rectángulos
+    for (var i = 0; i < numRectX; i++) {
+        for (var j = 0; j < numRectY; j++) {
+            // Generar un color aleatorio
+            var color = '#' + Math.floor(Math.random()*16777215).toString(16);
+            
+            // Dibujar el rectángulo con el color aleatorio
+            ctx.fillStyle = color;
+            ctx.fillRect(i * rectSize, j * rectSize, rectSize, rectSize);
+        }
+    }
+</script>
+</body>
+</html>
